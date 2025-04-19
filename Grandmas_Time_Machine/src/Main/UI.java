@@ -42,23 +42,29 @@ public class UI {
     public void createBackground() {
 
         bgPanel[1] = new JPanel();
-        bgPanel[1].setBounds(50, 50, 700, 350);
+        bgPanel[1].setBounds(70, 50, 600, 350);
         bgPanel[1].setBackground(Color.blue);
         bgPanel[1].setLayout(null);
         window.add(bgPanel[1]);
 
-        bgLabel[1] = new JLabel();
+
+
         bgLabel[1].setBounds(0, 0, 700, 350);
 
         //TO DO: add background images for the 3 scenes
         //TO DO: add icons to use in game
-        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("dino_scene1.png")));
-        Image scaledImage = originalIcon.getImage().getScaledInstance(700, 350, Image.SCALE_SMOOTH);
+        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("scene1.png")));
+        Image scaledImage = originalIcon.getImage().getScaledInstance(600, 350, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         bgLabel[1].setIcon(scaledIcon);
         bgPanel[1].add(bgLabel[1]);
 
 
+    }
+
+    public void createObject() {
+        JLabel objectLabel = new JLabel();
+        objectLabel.setBounds(400, 150, 700, 350);
     }
 }
