@@ -16,8 +16,7 @@ public class UI {
     public UI(GameManager gm) {
         this.gm = gm;
         createMainField();
-        createBackground();
-        createObject();
+        generateScreen();
 
         window.setVisible(true);
     }
@@ -41,30 +40,39 @@ public class UI {
         window.add(messageText);
     }
 
-    public void createBackground() {
+    public void createBackground(int bgNum, String bgFileName) {
 
-        bgPanel[1] = new JPanel();
-        bgPanel[1].setBounds(70, 50, 700, 350);
-        bgPanel[1].setBackground(Color.blue);
-        bgPanel[1].setLayout(null);
-        window.add(bgPanel[1]);
+        bgPanel[bgNum] = new JPanel();
+        bgPanel[bgNum].setBounds(70, 50, 700, 350);
+        bgPanel[bgNum].setBackground(Color.blue);
+        bgPanel[bgNum].setLayout(null);
+        window.add(bgPanel[bgNum]);
 
 
-        bgLabel[1] = new JLabel();
-        bgLabel[1].setBounds(0, 0, 700, 350);
+        bgLabel[bgNum] = new JLabel();
+        bgLabel[bgNum].setBounds(0, 0, 700, 350);
 
-        ImageIcon bgIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("scene1_1536x1024.png")));
-        bgLabel[1].setIcon(bgIcon);
+        ImageIcon bgIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(bgFileName)));
+        bgLabel[bgNum].setIcon(bgIcon);
     }
 
-    public void createObject() {
+    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String objFileName) {
         JLabel objectLabel = new JLabel();
-        objectLabel.setBounds(400, 150, 193, 163);
+        objectLabel.setBounds(objx, objy, objWidth, objHeight);
 
-        ImageIcon objectIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("cheese_193x163.png")));
+        ImageIcon objectIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(objFileName)));
         objectLabel.setIcon(objectIcon);
 
-        bgPanel[1].add(objectLabel);
-        bgPanel[1].add(bgLabel[1]);
+        bgPanel[bgNum].add(objectLabel);
+        bgPanel[bgNum].add(bgLabel[bgNum]);
     }
+
+    public void generateScreen() {
+
+        //SCREEN1
+        createBackground(1, "scene1_1536x1024.png");
+        createObject(1,400, 150, 193, 163, "cheese_193x163.png");
+    }
+
+
 }
