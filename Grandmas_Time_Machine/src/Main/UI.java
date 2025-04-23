@@ -63,7 +63,7 @@ public class UI {
         bgLabel[bgNum].setIcon(scaledIcon);
     }
 
-    public void createClickableObject(int bgNum, int objx, int objy, int objWidth, int objHeight) {
+    public void createClickableObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String actionCommand) {
         JButton objectButton = new JButton();
         objectButton.setBounds(objx, objy, objWidth, objHeight);
 
@@ -79,7 +79,7 @@ public class UI {
         // objectButton.setContentAreaFilled(false);
 
         objectButton.addActionListener(gm.handler);
-        objectButton.setActionCommand("");
+        objectButton.setActionCommand(actionCommand);
 
         // Add the button to the background panel
         bgPanel[bgNum].add(objectButton);
@@ -91,21 +91,21 @@ public class UI {
 
         //SCREEN1
         createBackground(1, "scene1_1536x1024.png");
-        createClickableObject(1,100, 100, 100, 100);
-        createClickableObject(1,300, 100, 100, 100);
-        createClickableObject(1,100, 300, 100, 100);
+        createClickableObject(1,100, 100, 100, 100, "clicked button 1");
+        createClickableObject(1,300, 100, 100, 100, "clicked button 2");
+        createClickableObject(1,100, 300, 100, 100, "clicked button 3");
 
         //SCREEN2
         createBackground(2, "scene2_1536x1024.png");
-        createClickableObject(2,100, 100, 100, 100);
-        createClickableObject(2,100, 100, 100, 100);
-        createClickableObject(2,100, 100, 100, 100);
+        createClickableObject(2,100, 100, 100, 100, "clicked button 4");
+        createClickableObject(2,100, 100, 100, 100, "clicked button 5");
+        createClickableObject(2,100, 100, 100, 100, "clicked button 6");
 
         //SCREEN3
         createBackground(3, "scene3_1536x1024.png");
-        createClickableObject(3,100, 100, 100, 100);
-        createClickableObject(3,100, 100, 100, 100);
-        createClickableObject(3,100, 100, 100, 100);
+        createClickableObject(3,100, 100, 100, 100, "clicked button 7");
+        createClickableObject(3,100, 100, 100, 100, "clicked button 8");
+        createClickableObject(3,100, 100, 100, 100, "clicked button 9");
 
 
     }
