@@ -18,7 +18,7 @@ public class UI {
     public UI(GameManager gm) {
         this.gm = gm;
         createMainField();
-        generateScreen();
+        generateScene();
 
         window.setVisible(true);
     }
@@ -76,36 +76,63 @@ public class UI {
         objectButton.setContentAreaFilled(true); // true for now (to see it)
 
         // Later you can disable background by setting ContentAreaFilled to false:
-        // objectButton.setContentAreaFilled(false);
+        //objectButton.setContentAreaFilled(false);
 
         objectButton.addActionListener(gm.handler);
         objectButton.setActionCommand(actionCommand);
 
         // Add the button to the background panel
         bgPanel[bgNum].add(objectButton);
-        bgPanel[bgNum].add(bgLabel[bgNum]); // keep the background label on top
+        //bgPanel[bgNum].add(bgLabel[bgNum]); // keep the background label on top
 
     }
 
-    public void generateScreen() {
+    public void createArrowButton(int bgNum, int objx, int objy, int objWidth, int objHeight, String arrowFileName, String actionCommand) {
 
-        //SCREEN1
+        ImageIcon arrowIcon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(arrowFileName)));
+
+        JButton arrowButton = new JButton();
+        Color brown = new Color(190, 170, 140); //brown color
+        arrowButton.setBounds(objx, objy, objWidth, objHeight);
+        arrowButton.setBackground(brown);
+        arrowButton.setContentAreaFilled(true);
+        arrowButton.setBorderPainted(false);
+        arrowButton.setFocusPainted(false);
+        arrowButton.setIcon(arrowIcon);
+        arrowButton.addActionListener(gm.handler);
+        arrowButton.setActionCommand(actionCommand);
+
+        bgPanel[bgNum].add(arrowButton);
+    }
+
+    public void generateScene() {
+
+        //Scene1
         createBackground(1, "scene1_1536x1024.png");
         createClickableObject(1,100, 100, 100, 100, "clicked button 1");
         createClickableObject(1,300, 100, 100, 100, "clicked button 2");
         createClickableObject(1,100, 300, 100, 100, "clicked button 3");
 
-        //SCREEN2
+        createArrowButton(1,475,150,50,50, "right-arrow.png", "goScene2");
+        bgPanel[1].add(bgLabel[1]);
+
+
+        //Scene2
         createBackground(2, "scene2_1536x1024.png");
         createClickableObject(2,100, 100, 100, 100, "clicked button 4");
         createClickableObject(2,100, 100, 100, 100, "clicked button 5");
         createClickableObject(2,100, 100, 100, 100, "clicked button 6");
+        createArrowButton(2,0,150,50,50, "left-arrow.png", "goScene1");
+        createArrowButton(2,475,150,50,50, "right-arrow.png", "goScene3");
+        bgPanel[2].add(bgLabel[2]);
 
-        //SCREEN3
+        //Scene3
         createBackground(3, "scene3_1536x1024.png");
         createClickableObject(3,100, 100, 100, 100, "clicked button 7");
         createClickableObject(3,100, 100, 100, 100, "clicked button 8");
         createClickableObject(3,100, 100, 100, 100, "clicked button 9");
+        createArrowButton(3,0,150,50,50, "left-arrow.png", "goScene2");
+        bgPanel[3].add(bgLabel[3]);
 
 
     }

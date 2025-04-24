@@ -24,8 +24,13 @@ public class ActionHandler implements ActionListener {
             case "clicked button 5": gm.ui.messageText.setText("Clicked button 5"); break;
             case "clicked button 6": gm.ui.messageText.setText("Clicked button 6"); break;
             case "clicked button 7": gm.ui.messageText.setText("Clicked button 7"); break;
-            case "clicked button 8": gm.ui.messageText.setText("Clicked button 8");break;
+            case "clicked button 8": gm.ui.messageText.setText("Clicked button 8"); break;
             case "clicked button 9": gm.ui.messageText.setText("Clicked button 9"); break;
+
+            //Change scenes
+            case "goScene1": gm.sceneChanger.showScene1(); break;
+            case "goScene2": gm.sceneChanger.showScene2(); break;
+            case "goScene3": gm.sceneChanger.showScene3(); break;
         }
     }
 }
