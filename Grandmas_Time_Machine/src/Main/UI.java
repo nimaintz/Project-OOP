@@ -46,7 +46,7 @@ public class UI {
 
         bgPanel[bgNum] = new JPanel();
         bgPanel[bgNum].setBounds(40, 50, 525, 350);
-        bgPanel[bgNum].setBackground(Color.blue);
+        //bgPanel[bgNum].setBackground(Color.blue);
         bgPanel[bgNum].setLayout(null);
         window.add(bgPanel[bgNum]);
 
@@ -109,9 +109,10 @@ public class UI {
 
         //Scene1
         createBackground(1, "scene1_1536x1024.png");
-        createClickableObject(1,100, 100, 100, 100, "clicked button 1");
-        createClickableObject(1,300, 100, 100, 100, "clicked button 2");
-        createClickableObject(1,100, 300, 100, 100, "clicked button 3");
+        createClickableObject(1,175, 105, 87, 45, "clicked fish");
+        createClickableObject(1,180, 270, 70, 40, "clicked cheese");
+        createClickableObject(1,75, 285, 75, 50, "clicked chicken");
+        createClickableObject(1,400, 300, 50, 40, "clicked strawberry");
 
         createArrowButton(1,475,150,50,50, "right-arrow.png", "goScene2");
         bgPanel[1].add(bgLabel[1]);
@@ -119,18 +120,19 @@ public class UI {
 
         //Scene2
         createBackground(2, "scene2_1536x1024.png");
-        createClickableObject(2,100, 100, 100, 100, "clicked button 4");
-        createClickableObject(2,100, 100, 100, 100, "clicked button 5");
-        createClickableObject(2,100, 100, 100, 100, "clicked button 6");
+        createClickableObject(2,20, 0, 70, 110, "clicked lamp");
+        createClickableObject(2,190, 180, 80, 30, "clicked glasses");
+        createClickableObject(2,420, 210, 80, 80, "clicked teapot");
+        createClickableObject(2,120, 230, 50, 100, "clicked cups");
         createArrowButton(2,0,150,50,50, "left-arrow.png", "goScene1");
         createArrowButton(2,475,150,50,50, "right-arrow.png", "goScene3");
         bgPanel[2].add(bgLabel[2]);
 
         //Scene3
         createBackground(3, "scene3_1536x1024.png");
-        createClickableObject(3,100, 100, 100, 100, "clicked button 7");
-        createClickableObject(3,100, 100, 100, 100, "clicked button 8");
-        createClickableObject(3,100, 100, 100, 100, "clicked button 9");
+        createClickableObject(3,100, 100, 100, 100, "clicked yarn");
+        createClickableObject(3,100, 100, 100, 100, "clicked notebook");
+        createClickableObject(3,100, 100, 100, 100, "clicked pencil");
         createArrowButton(3,0,150,50,50, "left-arrow.png", "goScene2");
         bgPanel[3].add(bgLabel[3]);
 
