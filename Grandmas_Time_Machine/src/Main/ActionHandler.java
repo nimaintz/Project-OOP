@@ -1,0 +1,43 @@
+package Main;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ActionHandler implements ActionListener {
+
+    GameManager gm;
+
+    public ActionHandler(GameManager gm) {
+        this.gm = gm;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        String action = e.getActionCommand();
+
+        switch (action) {
+            //scene1
+            case "clicked fish": gm.ui.messageText.setText("Great! You found a food item."); break;
+            case "clicked cheese": gm.ui.messageText.setText("You found another food item!"); break;
+            case "clicked chicken": gm.ui.messageText.setText("You're doing great!"); break;
+            case "clicked strawberry": gm.ui.messageText.setText("Little Pepe will not go hungry with you!"); break;
+
+            //scene2
+            case "clicked lamp": gm.ui.messageText.setText("Great! Now, can you see the glasses?"); break;
+            case "clicked glasses": gm.ui.messageText.setText("You found the glasses! Now pour yourself a cup of tea. Can you spot the teapot?"); break;
+            case "clicked teapot": gm.ui.messageText.setText("Good Good. Do you see some cups?"); break;
+            case "clicked cups": gm.ui.messageText.setText("Super! All finished in Ancient China. Time to move on!"); break;
+
+            //scene3
+            case "clicked yarn": gm.ui.messageText.setText("Nice. While you're still here, you try to nibble a little with history and give daVinci some inspiration. Can you sopt his notebook in this mess?"); break;
+            case "clicked notebook": gm.ui.messageText.setText("Now find a pencil to write for him some ideas from the future ;))"); break;
+            case "clicked pencil": gm.ui.messageText.setText("Great job! You found all the missing items. Game over."); break;
+
+            //Change scenes
+            case "goScene1": gm.sceneChanger.showScene1(); break;
+            case "goScene2": gm.sceneChanger.showScene2(); break;
+            case "goScene3": gm.sceneChanger.showScene3(); break;
+        }
+    }
+}
