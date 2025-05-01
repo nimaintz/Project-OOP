@@ -29,6 +29,16 @@ public class UI {
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
 
+        messageText = new JTextArea("Items found: ");
+        messageText.setBounds(45, 22, 200, 20);
+        messageText.setBackground(Color.black);
+        messageText.setForeground(Color.white);
+        messageText.setEditable(false);
+        messageText.setLineWrap(true);
+        messageText.setWrapStyleWord(true);
+        messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 20));
+        window.add(messageText);
+
         messageText = new JTextArea("Welcome to Grandma's Time Machine! Your first task is tho find all the food items in the picture to feed poor little Pepe. Can you spot the fish for a start?");
         messageText.setBounds(50, 410, 525, 150);
         messageText.setBackground(Color.black);
