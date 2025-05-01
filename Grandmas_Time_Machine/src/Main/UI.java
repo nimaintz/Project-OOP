@@ -9,8 +9,10 @@ public class UI {
     GameManager gm;
     JFrame window;
     public JTextArea messageText;
+    public JTextArea scoreText;
     public JPanel bgPanel[] = new JPanel[10];
     public JLabel bgLabel[] = new JLabel[10];
+    public int score = 0;
 
 
     public UI(GameManager gm) {
@@ -29,15 +31,15 @@ public class UI {
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
 
-        messageText = new JTextArea("Items found: ");
-        messageText.setBounds(45, 22, 200, 20);
-        messageText.setBackground(Color.black);
-        messageText.setForeground(Color.white);
-        messageText.setEditable(false);
-        messageText.setLineWrap(true);
-        messageText.setWrapStyleWord(true);
-        messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 20));
-        window.add(messageText);
+        scoreText = new JTextArea("Total items found: " + score + "/11");
+        scoreText.setBounds(45, 22, 300, 20);
+        scoreText.setBackground(Color.black);
+        scoreText.setForeground(Color.white);
+        scoreText.setEditable(false);
+        scoreText.setLineWrap(true);
+        scoreText.setWrapStyleWord(true);
+        scoreText.setFont(new Font("Book Antiqua", Font.PLAIN, 20));
+        window.add(scoreText);
 
         messageText = new JTextArea("Welcome to Grandma's Time Machine! Your first task is tho find all the food items in the picture to feed poor little Pepe. Can you spot the fish for a start?");
         messageText.setBounds(50, 410, 525, 150);
@@ -134,9 +136,6 @@ public class UI {
         createClickableObject(3,225, 310, 50, 20, "clicked pencil");
         createArrowButton(3,0,150,50,50, "left-arrow.png", "goScene2");
         bgPanel[3].add(bgLabel[3]);
-
-
     }
-
 
 }

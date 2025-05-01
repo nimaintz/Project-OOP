@@ -7,9 +7,11 @@ import java.awt.event.ActionListener;
 public class ActionHandler implements ActionListener {
 
     GameManager gm;
+    private ScoreTracker scoreTracker;
 
-    public ActionHandler(GameManager gm) {
+    public ActionHandler(GameManager gm, ScoreTracker scoreTracker) {
         this.gm = gm;
+        this.scoreTracker = scoreTracker;
     }
 
     @Override
@@ -43,12 +45,20 @@ public class ActionHandler implements ActionListener {
             default:
                 break;
         }
-            Object source = e.getSource();
-            if (source instanceof JButton) {
-                ((JButton) source).setEnabled(false);
-            }
-            if (source instanceof JButton && action.startsWith("goScene")) {
-                ((JButton) source).setEnabled(true);
-            }
+
+        Object source = e.getSource();
+        if (source instanceof JButton) {
+            ((JButton) source).setEnabled(false);
+        }
+        if (source instanceof JButton && action.startsWith("goScene")) {
+            ((JButton) source).setEnabled(true);
+        }
+
+        if (!scoreTracker.wasAlreadyClicked(action) && !action.startsWith("goScene")) {
+            scoreTracker.registerClick(action);
+            gm.ui.scoreText.setText("Total items found: " + gm.scoreTracker.getNrOfButtonsClicked() + "/11");
+        }
+
+
     }
 }

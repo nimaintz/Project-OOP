@@ -2,7 +2,8 @@ package Main;
 
 public class GameManager {
 
-    ActionHandler handler = new ActionHandler(this);
+    ScoreTracker scoreTracker = new ScoreTracker();
+    ActionHandler handler = new ActionHandler(this, scoreTracker);
     public UI ui = new UI(this);
     public SceneChanger sceneChanger = new SceneChanger(this);
 
