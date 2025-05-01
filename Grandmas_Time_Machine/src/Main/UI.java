@@ -2,8 +2,6 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class UI {
@@ -46,7 +44,6 @@ public class UI {
 
         bgPanel[bgNum] = new JPanel();
         bgPanel[bgNum].setBounds(40, 50, 525, 350);
-        //bgPanel[bgNum].setBackground(Color.blue);
         bgPanel[bgNum].setLayout(null);
         window.add(bgPanel[bgNum]);
 
@@ -67,15 +64,8 @@ public class UI {
         JButton objectButton = new JButton();
         objectButton.setBounds(objx, objy, objWidth, objHeight);
 
-        // TEMPORARY: Add background color to see positioning
-        objectButton.setBackground(Color.RED);
-
-        // Make it look flat: no border, no background fill, no focus painting
         objectButton.setFocusPainted(false);
         objectButton.setBorderPainted(false);
-        objectButton.setContentAreaFilled(true); // true for now (to see it)
-
-        // Later you can disable background by setting ContentAreaFilled to false:
         objectButton.setContentAreaFilled(false);
 
         objectButton.addActionListener(gm.handler);
@@ -84,8 +74,6 @@ public class UI {
 
         // Add the button to the background panel
         bgPanel[bgNum].add(objectButton);
-        //bgPanel[bgNum].add(bgLabel[bgNum]); // keep the background label on top
-
     }
 
     public void createArrowButton(int bgNum, int objx, int objy, int objWidth, int objHeight, String arrowFileName, String actionCommand) {

@@ -7,12 +7,7 @@ import java.awt.event.ActionListener;
 public class ActionHandler implements ActionListener {
 
     GameManager gm;
-//    private JButton button;
-//    private boolean clicked = false;
-//
-//    public void OneClickListener(JButton button) {
-//        this.button = button;
-//    }
+
     public ActionHandler(GameManager gm) {
         this.gm = gm;
     }
