@@ -17,15 +17,22 @@ public class ActionHandler implements ActionListener {
         String action = e.getActionCommand();
 
         switch (action) {
-            case "clicked button 1": gm.ui.messageText.setText("Clicked button 1"); break;
-            case "clicked button 2": gm.ui.messageText.setText("Clicked button 2"); break;
-            case "clicked button 3": gm.ui.messageText.setText("Clicked button 3"); break;
-            case "clicked button 4": gm.ui.messageText.setText("Clicked button 4"); break;
-            case "clicked button 5": gm.ui.messageText.setText("Clicked button 5"); break;
-            case "clicked button 6": gm.ui.messageText.setText("Clicked button 6"); break;
-            case "clicked button 7": gm.ui.messageText.setText("Clicked button 7"); break;
-            case "clicked button 8": gm.ui.messageText.setText("Clicked button 8"); break;
-            case "clicked button 9": gm.ui.messageText.setText("Clicked button 9"); break;
+            //scene1
+            case "clicked fish": gm.ui.messageText.setText("Great! You found a food item."); break;
+            case "clicked cheese": gm.ui.messageText.setText("You found another food item!"); break;
+            case "clicked chicken": gm.ui.messageText.setText("You're doing great!"); break;
+            case "clicked strawberry": gm.ui.messageText.setText("Little Pepe will not go hungry with you!"); break;
+
+            //scene2
+            case "clicked lamp": gm.ui.messageText.setText("Great! Now, can you see the glasses?"); break;
+            case "clicked glasses": gm.ui.messageText.setText("You found the glasses! Now pour yourself a cup of tea. Can you spot the teapot?"); break;
+            case "clicked teapot": gm.ui.messageText.setText("Good Good. Do you see some cups?"); break;
+            case "clicked cups": gm.ui.messageText.setText("Super! All finished in Ancient China. Time to move on!"); break;
+
+            //scene3
+            case "clicked yarn": gm.ui.messageText.setText("Nice. While you're still here, you try to nibble a little with history and give daVinci some inspiration. Can you sopt his notebook in this mess?"); break;
+            case "clicked notebook": gm.ui.messageText.setText("Now find a pencil to write for him some ideas from the future ;))"); break;
+            case "clicked pencil": gm.ui.messageText.setText("Great job! You found all the missing items. Game over."); break;
 
             //Change scenes
             case "goScene1": gm.sceneChanger.showScene1(); break;

@@ -31,14 +31,14 @@ public class UI {
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
 
-        messageText = new JTextArea("Welcome to Grandma's Time Machine");
+        messageText = new JTextArea("Welcome to Grandma's Time Machine! Your first task is tho find all the food items in the picture to feed poor little Pepe. Can you spot the fish for a start?");
         messageText.setBounds(50, 410, 525, 150);
         messageText.setBackground(Color.black);
         messageText.setForeground(Color.white);
         messageText.setEditable(false);
         messageText.setLineWrap(true);
         messageText.setWrapStyleWord(true);
-        messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 26));
+        messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 25));
         window.add(messageText);
     }
 
@@ -76,7 +76,7 @@ public class UI {
         objectButton.setContentAreaFilled(true); // true for now (to see it)
 
         // Later you can disable background by setting ContentAreaFilled to false:
-        //objectButton.setContentAreaFilled(false);
+        objectButton.setContentAreaFilled(false);
 
         objectButton.addActionListener(gm.handler);
         objectButton.setActionCommand(actionCommand);
@@ -130,9 +130,9 @@ public class UI {
 
         //Scene3
         createBackground(3, "scene3_1536x1024.png");
-        createClickableObject(3,100, 100, 100, 100, "clicked yarn");
-        createClickableObject(3,100, 100, 100, 100, "clicked notebook");
-        createClickableObject(3,100, 100, 100, 100, "clicked pencil");
+        createClickableObject(3,380, 250, 70, 70, "clicked yarn");
+        createClickableObject(3,400, 190, 90, 50, "clicked notebook");
+        createClickableObject(3,225, 310, 50, 20, "clicked pencil");
         createArrowButton(3,0,150,50,50, "left-arrow.png", "goScene2");
         bgPanel[3].add(bgLabel[3]);
 
