@@ -1,12 +1,18 @@
 package Main;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ActionHandler implements ActionListener {
 
     GameManager gm;
-
+//    private JButton button;
+//    private boolean clicked = false;
+//
+//    public void OneClickListener(JButton button) {
+//        this.button = button;
+//    }
     public ActionHandler(GameManager gm) {
         this.gm = gm;
     }
@@ -38,6 +44,16 @@ public class ActionHandler implements ActionListener {
             case "goScene1": gm.sceneChanger.showScene1(); break;
             case "goScene2": gm.sceneChanger.showScene2(); break;
             case "goScene3": gm.sceneChanger.showScene3(); break;
+
+            default:
+                break;
         }
+            Object source = e.getSource();
+            if (source instanceof JButton) {
+                ((JButton) source).setEnabled(false);
+            }
+            if (source instanceof JButton && action.startsWith("goScene")) {
+                ((JButton) source).setEnabled(true);
+            }
     }
 }

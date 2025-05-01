@@ -81,6 +81,7 @@ public class UI {
         objectButton.addActionListener(gm.handler);
         objectButton.setActionCommand(actionCommand);
 
+
         // Add the button to the background panel
         bgPanel[bgNum].add(objectButton);
         //bgPanel[bgNum].add(bgLabel[bgNum]); // keep the background label on top
