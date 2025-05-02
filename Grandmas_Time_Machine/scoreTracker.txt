@@ -1,0 +1,10 @@
+buttonsClicked=9
+clicked lamp
+clicked cups
+clicked strawberry
+clicked cheese
+clicked chicken
+clicked teapot
+clicked yarn
+clicked notebook
+clicked fish

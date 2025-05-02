@@ -12,7 +12,6 @@ public class UI {
     public JTextArea scoreText;
     public JPanel bgPanel[] = new JPanel[10];
     public JLabel bgLabel[] = new JLabel[10];
-    public int score = 0;
 
 
     public UI(GameManager gm) {
@@ -27,11 +26,20 @@ public class UI {
         window = new JFrame();
         window.setTitle("Grandma's Time Machine");
         window.setSize(650, 600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
 
-        scoreText = new JTextArea("Total items found: " + score + "/11");
+        window.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                gm.scoreTracker.saveProgressToFile("scoreTracker.txt");
+                System.out.println("Progress saved to file.");
+                System.exit(0);
+            }
+        });
+
+        scoreText = new JTextArea("Total items found: 0/11");
         scoreText.setBounds(45, 22, 300, 20);
         scoreText.setBackground(Color.black);
         scoreText.setForeground(Color.white);

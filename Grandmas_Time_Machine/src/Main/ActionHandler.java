@@ -59,6 +59,21 @@ public class ActionHandler implements ActionListener {
             gm.ui.scoreText.setText("Total items found: " + gm.scoreTracker.getNrOfButtonsClicked() + "/11");
         }
 
+        if (gm.scoreTracker.getNrOfButtonsClicked() == 11) {
+            // Reset the tracker
+            gm.scoreTracker.resetProgress();
+
+            // Reset the save file (optional)
+            gm.scoreTracker.saveProgressToFile("scoreTracker.txt");
+
+            // Reset the UI display
+            gm.ui.scoreText.setText("Total items found: 0/11");
+
+            // Optionally show a win message
+            gm.ui.messageText.setText("Congratulations! You finished the game. Progress has been reset.");
+        }
+
+
 
     }
 }

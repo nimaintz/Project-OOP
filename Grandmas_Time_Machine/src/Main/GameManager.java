@@ -12,6 +12,7 @@ public class GameManager {
         new GameManager();
     }
     public GameManager() {
-
+        scoreTracker.loadProgressFromFile("scoreTracker.txt");
+        ui.scoreText.setText("Total items found: " + scoreTracker.getNrOfButtonsClicked() + "/11");
     }
 }
