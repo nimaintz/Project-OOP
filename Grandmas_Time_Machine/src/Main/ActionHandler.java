@@ -1,6 +1,7 @@
 package Main;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +41,26 @@ public class ActionHandler implements ActionListener {
             //Change scenes
             case "goScene1": gm.sceneChanger.showScene1(); gm.ui.messageText.setText("Welcome to Grandma's Time Machine! Your first task is tho find all the food items in the picture to feed poor little Pepe. Can you spot the fish for a start?"); break;
             case "goScene2": gm.sceneChanger.showScene2(); gm.ui.messageText.setText("Now you're in ancient China. Can you turn on the lights so you can see?"); break;
-            case "goScene3": gm.sceneChanger.showScene3(); gm.ui.messageText.setText("Here in DaVinci's workshop, Grandma forgot her ball you yarn. Ca you spot it?"); break;
+            case "goScene3": gm.sceneChanger.showScene3(); gm.ui.messageText.setText("Here in DaVinci's workshop, Grandma forgot her yarn. Ca you spot it?"); break;
+
+            //reset button
+            case "reset":
+                gm.scoreTracker.resetProgress();
+                gm.ui.scoreText.setText("Total items found: 0/11");
+                // Re-enable all clickable object buttons
+                for (int i = 1; i <= 3; i++) {  // loop through scenes 1–3
+                    for (Component comp : gm.ui.bgPanel[i].getComponents()) {
+                        if (comp instanceof JButton) {
+                            JButton btn = (JButton) comp;
+                            String cmd = btn.getActionCommand();
+                            if (!cmd.startsWith("goScene")) { // exclude navigation buttons
+                                btn.setEnabled(true);
+                            }
+                        }
+                    }
+                }
+                gm.scoreTracker.saveProgressToFile("scoreTracker.txt");
+                break;
 
             default:
                 break;
@@ -48,29 +68,22 @@ public class ActionHandler implements ActionListener {
 
         Object source = e.getSource();
         if (source instanceof JButton) {
-            ((JButton) source).setEnabled(false);
-        }
-        if (source instanceof JButton && action.startsWith("goScene")) {
-            ((JButton) source).setEnabled(true);
+            if (action.startsWith("goScene")) ((JButton) source).setEnabled(true);
+            else if (action.equals("reset")) ((JButton) source).setEnabled(true);
+            else ((JButton) source).setEnabled(false);
         }
 
-        if (!scoreTracker.wasAlreadyClicked(action) && !action.startsWith("goScene")) {
+        if (!scoreTracker.wasAlreadyClicked(action) && !action.startsWith("goScene") && !action.equals("reset")) {
             scoreTracker.registerClick(action);
             gm.ui.scoreText.setText("Total items found: " + gm.scoreTracker.getNrOfButtonsClicked() + "/11");
         }
 
-        if (gm.scoreTracker.getNrOfButtonsClicked() == 11) {
-            // Reset the tracker
-            gm.scoreTracker.resetProgress();
+        if (!action.equals("reset") && gm.scoreTracker.getNrOfButtonsClicked() == 11) {
 
-            // Reset the save file (optional)
+            gm.scoreTracker.resetProgress();
             gm.scoreTracker.saveProgressToFile("scoreTracker.txt");
 
-            // Reset the UI display
             gm.ui.scoreText.setText("Total items found: 0/11");
-
-//            // Optionally show a win message
-//            gm.ui.messageText.setText("Congratulations! You finished the game. Progress has been reset.");
         }
 
 

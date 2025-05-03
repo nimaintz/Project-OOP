@@ -1,6 +1,4 @@
-buttonsClicked=5
+buttonsClicked=3
 clicked cheese
-clicked strawberry
 clicked chicken
-clicked pencil
 clicked fish

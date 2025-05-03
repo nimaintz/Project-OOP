@@ -10,6 +10,7 @@ public class UI {
     JFrame window;
     public JTextArea messageText;
     public JTextArea scoreText;
+    public JButton resetButton;
     public JPanel bgPanel[] = new JPanel[10];
     public JLabel bgLabel[] = new JLabel[10];
     private CardLayout cardLayout;
@@ -123,7 +124,22 @@ public class UI {
         bgPanel[bgNum].add(arrowButton);
     }
 
+    public void createResetButton() {
+        resetButton = new JButton("Reset Score");
+        resetButton.setBackground(Color.white);
+        resetButton.setForeground(Color.black);
+        resetButton.setFont(new Font("Book Antiqua", Font.PLAIN, 20));
+        resetButton.setBounds(415, 22, 150, 20);
+        window.add(resetButton);
+        resetButton.addActionListener(gm.handler);
+        resetButton.setActionCommand("reset");
+
+
+    }
+
     public void generateScene() {
+
+        createResetButton();
 
         //Scene1
         createBackground(1, "scene1_1536x1024.png");
