@@ -33,14 +33,14 @@ public class ActionHandler implements ActionListener {
             case "clicked cups": gm.ui.messageText.setText("Super! All finished in Ancient China. Time to move on!"); break;
 
             //scene3
-            case "clicked yarn": gm.ui.messageText.setText("Nice. While you're still here, you try to nibble a little with history and give daVinci some inspiration. Can you sopt his notebook in this mess?"); break;
+            case "clicked yarn": gm.ui.messageText.setText("Nice. While you're still here, you try to nibble a little with history and give daVinci some inspiration. Can you spot his notebook in this mess?"); break;
             case "clicked notebook": gm.ui.messageText.setText("Now find a pencil to write for him some ideas from the future ;))"); break;
-            case "clicked pencil": gm.ui.messageText.setText("Great job! You found all the missing items. Game over."); break;
+            case "clicked pencil": gm.ui.messageText.setText("Great job! You found all the missing items. Your progress has been reset. You can play again. :))"); break;
 
             //Change scenes
-            case "goScene1": gm.sceneChanger.showScene1(); break;
-            case "goScene2": gm.sceneChanger.showScene2(); break;
-            case "goScene3": gm.sceneChanger.showScene3(); break;
+            case "goScene1": gm.sceneChanger.showScene1(); gm.ui.messageText.setText("Welcome to Grandma's Time Machine! Your first task is tho find all the food items in the picture to feed poor little Pepe. Can you spot the fish for a start?"); break;
+            case "goScene2": gm.sceneChanger.showScene2(); gm.ui.messageText.setText("Now you're in ancient China. Can you turn on the lights so you can see?"); break;
+            case "goScene3": gm.sceneChanger.showScene3(); gm.ui.messageText.setText("Here in DaVinci's workshop, Grandma forgot her ball you yarn. Ca you spot it?"); break;
 
             default:
                 break;
@@ -69,8 +69,8 @@ public class ActionHandler implements ActionListener {
             // Reset the UI display
             gm.ui.scoreText.setText("Total items found: 0/11");
 
-            // Optionally show a win message
-            gm.ui.messageText.setText("Congratulations! You finished the game. Progress has been reset.");
+//            // Optionally show a win message
+//            gm.ui.messageText.setText("Congratulations! You finished the game. Progress has been reset.");
         }
 
 

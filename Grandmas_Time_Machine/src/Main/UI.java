@@ -12,6 +12,8 @@ public class UI {
     public JTextArea scoreText;
     public JPanel bgPanel[] = new JPanel[10];
     public JLabel bgLabel[] = new JLabel[10];
+    private CardLayout cardLayout;
+    private JPanel cardPanel;
 
 
     public UI(GameManager gm) {
@@ -58,15 +60,17 @@ public class UI {
         messageText.setWrapStyleWord(true);
         messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 25));
         window.add(messageText);
+
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
+        cardPanel.setBounds(40, 50, 525, 350);
+        window.add(cardPanel);
     }
 
     public void createBackground(int bgNum, String bgFileName) {
 
         bgPanel[bgNum] = new JPanel();
-        bgPanel[bgNum].setBounds(40, 50, 525, 350);
         bgPanel[bgNum].setLayout(null);
-        window.add(bgPanel[bgNum]);
-
 
         bgLabel[bgNum] = new JLabel();
         bgLabel[bgNum].setBounds(0, 0, 640, 350);
@@ -76,8 +80,13 @@ public class UI {
         Image scaledImg = img.getScaledInstance(525, 350, Image.SCALE_SMOOTH); // scale it
         ImageIcon scaledIcon = new ImageIcon(scaledImg); // wrap it back in an ImageIcon
 
-
         bgLabel[bgNum].setIcon(scaledIcon);
+        bgPanel[bgNum].add(bgLabel[bgNum]);
+        cardPanel.add(bgPanel[bgNum], "Scene" + bgNum);
+    }
+
+    public void showScene(String sceneName) {
+        cardLayout.show(cardPanel, sceneName);
     }
 
     public void createClickableObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String actionCommand) {
