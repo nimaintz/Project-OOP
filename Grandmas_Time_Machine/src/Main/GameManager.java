@@ -2,7 +2,8 @@ package Main;
 
 public class GameManager {
 
-    ActionHandler handler = new ActionHandler(this);
+    ScoreTracker scoreTracker = new ScoreTracker();
+    ActionHandler handler = new ActionHandler(this, scoreTracker);
     public UI ui = new UI(this);
     public SceneChanger sceneChanger = new SceneChanger(this);
 
@@ -10,7 +11,10 @@ public class GameManager {
 
         new GameManager();
     }
-    public GameManager() {
 
+
+    public GameManager() {
+        scoreTracker.loadProgressFromFile("scoreTracker.txt");
+        ui.scoreText.setText("Total items found: " + scoreTracker.getNrOfButtonsClicked() + "/11");
     }
 }

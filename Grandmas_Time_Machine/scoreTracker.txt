@@ -1,0 +1,4 @@
+buttonsClicked=3
+clicked cheese
+clicked chicken
+clicked fish
